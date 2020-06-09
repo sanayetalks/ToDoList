@@ -76,10 +76,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QG6-FS-eUc">
-                                <rect key="frame" x="182" y="394" width="51" height="33"/>
+                                <rect key="frame" x="183" y="394" width="50" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Delete"/>
                                 <connections>
                                     <action selector="completeTapped:" destination="ZI1-pa-cLu" eventType="touchUpInside" id="dOC-FT-1lT"/>
                                 </connections>
@@ -129,13 +129,12 @@
                                 <rect key="frame" x="184" y="433" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60U-3i-D12">
-                                <rect key="frame" x="318" y="97" width="80" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1d-eh-wD7">
+                                <rect key="frame" x="335" y="113" width="72" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add To Do"/>
                                 <connections>
-                                    <action selector="addTrapped:" destination="VdK-KH-bbW" eventType="touchUpInside" id="Dp2-dJ-aeZ"/>
+                                    <action selector="addTapped:" destination="VdK-KH-bbW" eventType="touchUpInside" id="5JD-7h-VyL"/>
                                 </connections>
                             </button>
                         </subviews>

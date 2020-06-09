@@ -10,6 +10,8 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
     
+    
+    
     func createToDos() -> [ToDo] {
         let swift = ToDo()
         swift.name = "Learn Swift"
@@ -21,12 +23,28 @@ class ToDoTableViewController: UITableViewController {
         return [swift, dog]
     }
     
-    var toDos : [ToDo] = []
+    func getToDos() {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            
+            if let coreDataToDos = try? context.fetch(ToDoCD.fetchRequest()) as? [ToDoCD] {
+                toDos = coreDataToDos
+                tableView.reloadData()
+               /* if let theToDos = coreDataToDos {
+                    toDos = theToDos
+                    tableView.reloadData()
+                } */
+            }
+    }
+}
+    override func viewWillAppear(_ animated: Bool) {
+        getToDos()
+    }
+    
+    var toDos : [ToDoCD] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toDos = createToDos()
             }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,10 +57,12 @@ class ToDoTableViewController: UITableViewController {
 
         let toDo = toDos[indexPath.row]
         
-        if toDo.important {
-            cell.textLabel?.text = " 📌  " + toDo.name
-        } else {
-            cell.textLabel?.text = toDo.name
+        if let name = toDo.name {
+            if toDo.important {
+                cell.textLabel?.text = " 📌  " + name
+            } else {
+                cell.textLabel?.text = toDo.name
+            }
         }
 
         return cell
@@ -53,8 +73,8 @@ class ToDoTableViewController: UITableViewController {
             addVC.previousVC = self
         }
     
-    if var completeVC = segue.destination as? CompleteToDoViewController {
-        if let toDo = sender as? ToDo {
+    if let completeVC = segue.destination as? CompleteToDoViewController {
+        if let toDo = sender as? ToDoCD {
             completeVC.selectedToDo = toDo
             completeVC.previousVC = self
         }
